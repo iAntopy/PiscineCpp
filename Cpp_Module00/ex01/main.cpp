@@ -13,7 +13,7 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <cstdlib>
+//#include <cstdlib>
 #include <ctime>
 
 void	display_title(void)
@@ -62,7 +62,7 @@ void	display_intro_msg(void)
 	if (pick == 0)
 		pb_msg("You and I will make this day so much better I can tell.", 2);
 	else if (pick == 1)
-		pb_msg("I got a feeling you there's something on your mind. I think I can help.", 2);
+		pb_msg("I got a feeling there's something on your mind. I think I can help.", 2);
 	else
 		pb_msg("Let's not waist time. I can sense you'll be busy today.", 2);
 }
@@ -82,10 +82,10 @@ int	prompt_user(PhoneBook& pb)
 	
 //	std::cout << prompting 
 	pb_input_prompt(entry);
-	if (entry == "ADD")
+	if (entry.substr(0,3) == "ADD")
 	{
 //		pb_msg("ADD", 1);
-		pb_msg("I see you've got someone on your mind. Come on tell me who, I know how to keep secrets.", 1);
+		pb_msg("So who's the lucky one. Come on tell me. I can keep secrets.", 1);
 		if (pb.add() < 0)
 		{
 			std::cout << std::endl;
@@ -94,12 +94,12 @@ int	prompt_user(PhoneBook& pb)
 		else
 		{
 			Contact const&	c = pb.getLastEntry();
-			std::cout << PB_OUT_PROMPT << c.getFirstName() << ". Sounds nice. Can't wait to hear more about them." << std::endl;
+			std::cout << PB_OUT_PROMPT << c.getFirstName() << " hey. Can't wait to hear more about them." << std::endl;
 		}
 	}
-	else if (entry == "SEARCH")
+	else if (entry.substr(0,6) == "SEARCH")
 		pb.search();
-	else if (entry == "EXIT")
+	else if (entry.substr(0,4) == "EXIT")
 		return (-1);
 	else if (entry.empty())
 	{
@@ -112,9 +112,9 @@ int	prompt_user(PhoneBook& pb)
 		if (pick == 0)
 			pb_msg("I don't get your giberish. Speak clearly.", 1);
 		else if (pick == 1)
-			pb_msg("You're takin' nonsense. You know what I want. Give it to me.", 1);
+			pb_msg("You're talkin' nonsense. You know what I want. Give it to me.", 1);
 		else
-			pb_msg("What is it with you today ? Making sense of you is getting hard.", 1);
+			pb_msg("What is it with you today ? You can barely put a word in front of the other.", 1);
 	}
 	return (0);
 }

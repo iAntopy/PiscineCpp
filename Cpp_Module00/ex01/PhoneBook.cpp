@@ -221,12 +221,12 @@ int	PhoneBook::search(void)
 		else
 			break ;
 	}
-	std::cout << PB_OUT_PROMPT << "Here's everything I know about " << C->getFirstName() << " " << C->getLastName() << std::endl;
-	std::cout << PB_OUT_PROMPT << "First Name :\t\t" << C->getFirstName() << std::endl;
-	std::cout << PB_OUT_PROMPT << "Last Name :\t\t" << C->getLastName() << std::endl;
-	std::cout << PB_OUT_PROMPT << "Nickname :\t\t" << C->getNickName() << std::endl;
-	std::cout << PB_OUT_PROMPT << "Phone number :\t\t" << C->getPhoneNum() << std::endl;
-	std::cout << PB_OUT_PROMPT << "Darkest secret :\t" << C->getDarkSecret() << std::endl;
+	std::cout << PB_OUT_PROMPT << "Here's everything I know about " << C->getFirstName() << " " << C->getLastName() << std::endl << std::endl;
+	std::cout << PB_OUT_PROMPT << "\t- First Name :\t\t" << C->getFirstName() << std::endl;
+	std::cout << PB_OUT_PROMPT << "\t- Last Name :\t\t" << C->getLastName() << std::endl;
+	std::cout << PB_OUT_PROMPT << "\t- Nickname :\t\t" << C->getNickName() << std::endl;
+	std::cout << PB_OUT_PROMPT << "\t- Phone number :\t\t" << C->getPhoneNum() << std::endl;
+	std::cout << PB_OUT_PROMPT << "\t- Darkest secret :\t" << C->getDarkSecret() << std::endl << std::endl;
 	std::cout << PB_OUT_PROMPT << "They seem great. You should give'em a call." << std::endl << std::endl;
 //	std::cout << "SEARCH requested" << std::endl;
         return (0);

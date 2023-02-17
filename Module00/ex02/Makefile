@@ -1,6 +1,6 @@
-SRCS	=	Account.cpp
+SRCS	=	tests.cpp
 
-#CLS	=	PhoneBook.cpp Contact.cpp
+CLS	=	Account.cpp
 
 OBJS	=	$(SRCS:.cpp=.o) $(CLS:.cpp=.o)
 

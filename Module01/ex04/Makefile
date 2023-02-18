@@ -1,14 +1,12 @@
-SRCS	=	main.cpp 
+SRCS	=	main.cpp
 
-CLS		=	Weapon.cpp HumanA.cpp HumanB.cpp
-
-OBJS	=	$(SRCS:.cpp=.o) $(CLS:.cpp=.o)
+OBJS	=	$(SRCS:.cpp=.o)
 
 CPPSTD	=	-std=c++98
 
-CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra -g
+CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra
 
-NAME	=	Gratuitous_Violence	
+NAME	=	sed
 
 .c.o:
 	c++ $(CPPFLGS) -o $< -c $@

@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:55:25 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/17 01:14:01 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:53:55 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 
 class HumanB
 {
-    private:
-        std::string const&  _name;
-        Weapon*              _weapon;
-        
-    public:
-        HumanB(std::string const& name);
-        ~HumanB();
-        
-        void    setWeapon(Weapon* weapon);
-        void    attack(void);
+	private:
+		std::string const&	_name;
+		Weapon*				_weapon;
+		
+	public:
+		HumanB(std::string const&	name);
+		~HumanB();
+		
+		void	setWeapon(Weapon&	weapon);
+		void	attack(void);
 };
 
 #endif

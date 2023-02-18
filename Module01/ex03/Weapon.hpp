@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:49:24 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/17 01:18:16 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:05:40 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 class Weapon
 {
-    private:
-        std::string _type;
-        
-    public:
-        Weapon(std::string const& type);
-        ~Weapon(void);
+	private:
+		std::string	_type;
+		
+	public:
+		Weapon(std::string const& type);
+		~Weapon(void);
 
-        std::string const&  getType(void);
-        void                setType(std::string const& type);
+		std::string const&	getType(void);
+		void				setType(std::string const& type);
 };
 
 #endif

@@ -1,14 +1,14 @@
-SRCS	=	main.cpp 
+SRCS	=	main.cpp
 
-CLS		=	Weapon.cpp HumanA.cpp HumanB.cpp
+CLS		=	Harl.cpp
 
 OBJS	=	$(SRCS:.cpp=.o) $(CLS:.cpp=.o)
 
 CPPSTD	=	-std=c++98
 
-CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra -g
+CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra
 
-NAME	=	Gratuitous_Violence	
+NAME	=	Harl_filter
 
 .c.o:
 	c++ $(CPPFLGS) -o $< -c $@

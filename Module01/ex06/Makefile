@@ -8,7 +8,7 @@ CPPSTD	=	-std=c++98
 
 CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra
 
-NAME	=	Harl_filter
+NAME	=	HarlFilter
 
 .c.o:
 	c++ $(CPPFLGS) -o $< -c $@

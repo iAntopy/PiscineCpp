@@ -6,7 +6,7 @@ OBJS	=	$(SRCS:.cpp=.o) $(CLS:.cpp=.o)
 
 CPPSTD	=	-std=c++98
 
-CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra -g
+CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra
 
 NAME	=	Zombo_horde
 

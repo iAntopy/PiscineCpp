@@ -63,21 +63,17 @@ void    Harl::complain(std::string level)
 		case 0:
 			std::cout << "[ DEBUG ]" << std::endl;
 			this->debug();
-//			break;
 		case 1:
 			std::cout << "[ INFO ]" << std::endl;
 			this->info();
-//			break;
 		case 2:
 			std::cout << "[ WARNING ]" << std::endl;
 			this->warning();
-//			break;
 		case 3:
 			std::cout << "[ ERROR ]" << std::endl;
 			this->error();
 			break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-//			break;
 	}
 }

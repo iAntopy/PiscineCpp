@@ -15,31 +15,33 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed b(a);
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+//	Fixed const b( Fixed( 5.05f ) + Fixed( 2 ) );
+//	std::cout << b << std::endl;
+//	Fixed const c( Fixed( 5.05f ) - Fixed( 2 ) );
+//	std::cout << c << std::endl;
+	Fixed const d( Fixed( 5.05f ) * Fixed( 2 ) );
+//	Fixed const e( Fixed( 5.05f ) / Fixed( 2 ) );
+//	std::cout << e << std::endl;
+
+	std::cout << "a :		" << a << std::endl;
+	std::cout << "++a :		" << ++a << std::endl;
+	std::cout << "a :		" << a << std::endl;
+	std::cout << "a++ :		" << a++ << std::endl;
+	std::cout << "a :		" << a << std::endl;
+	std::cout << "d :		" << d << std::endl;
+	std::cout << "max( a, d ) :	" << Fixed::max( a, d ) << std::endl;
+	std::cout << "min( a, d ) :	" << Fixed::min( a, d ) << std::endl;
 	return 0;
 }
+
 /*
 EXPECTED RESULT : 
 
-Default constructor called
-Copy constructor called
-Copy assignment operator called // <-- This line may be missing depending on your implementation
-getRawBits member function called
-Default constructor called
-Copy assignment operator called
-getRawBits member function called
-getRawBits member function called
 0
-getRawBits member function called
-0
-getRawBits member function called
-0
-Destructor called
-Destructor called
-Destructor called
+0.00390625
+0.00390625
+0.00390625
+0.0078125
+10.1016
+10.1016
 */

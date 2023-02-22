@@ -49,9 +49,7 @@ public:
 	Fixed	operator--();
 	Fixed	operator--(int);
 
-
 	Fixed	operator-() const; //Unary Minus
-
 
 	static Fixed&		min(Fixed& lhs, Fixed& rhs);
 	static Fixed const&	min(Fixed const& lhs, Fixed const& rhs);

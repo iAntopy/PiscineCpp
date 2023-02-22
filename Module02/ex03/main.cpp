@@ -17,35 +17,28 @@
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 
+static void	single_bsp_test(int i, bool expected, Point const& a,
+				Point const& b, Point const& c, Point const& probe)
+{
+	bool	is_inside = bsp(a, b, c, probe);
+
+	std::cout << std::boolalpha;
+	std::cout << "	test probe " << i << " : " << probe << std::endl;
+	std::cout << "	BSP test : " << is_inside << std::endl; 
+	std::cout << "	Expected : " << expected << std::endl << std::endl;
+	std::cout << std::noboolalpha;
+}
+
 void	triangle_test_1(void)
 {
 	Point	a(0.0f, 0.0f);
 	Point	b(4.0f, 3.0f);
 	Point	c(4.0f, 0.0f);
 
-	Point	probe1 = Point(0.0f, 0.0f);
-	bool	is_inside = bsp(a, b, c, probe1);
-	bool	correct_result = false;
-
-	std::cout << std::boolalpha;
 	std::cout << "TRIANGLE 1 ABC : " << a << b << c << std::endl;
-	std::cout << "	test Point 1: " << probe1 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl;
-
-	Point	probe2(100.0f, 100.0f);
-	is_inside = bsp(a, b, c, probe2);
-	correct_result = false;
-
-	std::cout << "	test Point 2: " << probe2 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl;
-
-	Point	probe3(3.0f, 2.0f);
-	is_inside = bsp(a, b, c, probe3);
-	correct_result = true;
-
-	std::cout << "	test Point 3: " << probe3 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl << std::endl;
-
+	single_bsp_test(1, false, a, b, c, Point(0.0f, 0.0f));
+	single_bsp_test(2, false, a, b, c, Point(100.0f, 100.0f));
+	single_bsp_test(3, true, a, b, c, Point(3.0f, 2.0f));
 }
 
 void	triangle_test_2(void)
@@ -54,29 +47,10 @@ void	triangle_test_2(void)
 	Point	b(-5.0f, 2.5f);
 	Point	c(-5.0f, -2.5f);
 
-	Point	probe1 = Point(0.0f, 0.0f);
-	bool	is_inside = bsp(a, b, c, probe1);
-	bool	correct_result = false;
-
-	std::cout << std::boolalpha;
 	std::cout << "TRIANGLE 2 ABC : " << a << b << c << std::endl;
-	std::cout << "	test Point 1: " << probe1 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl;
-
-	Point	probe2(-1.0f, 0.0f);
-	is_inside = bsp(a, b, c, probe2);
-	correct_result = false;
-
-	std::cout << "	test Point 2: " << probe2 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl;
-
-	Point	probe3(-4.0f, 1.0f);
-	is_inside = bsp(a, b, c, probe3);
-	correct_result = true;
-
-	std::cout << "	test Point 3: " << probe3 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl << std::endl;
-	
+	single_bsp_test(1, false, a, b, c, Point(0.0f, 0.0f));
+	single_bsp_test(2, false, a, b, c, Point(-1.0f, 0.0f));
+	single_bsp_test(3, true, a, b, c, Point(-4.0f, 1.0f));
 }
 
 void	triangle_test_3(void)
@@ -85,29 +59,10 @@ void	triangle_test_3(void)
 	Point	b(5.0f, 5.0f);
 	Point	c(5.0f, 0.0f);
 
-	Point	probe1 = Point(1.0f, 1.0f);
-	bool	is_inside = bsp(a, b, c, probe1);
-	bool	correct_result = false;
-
-	std::cout << std::boolalpha;
 	std::cout << "TRIANGLE 3 ABC : " << a << b << c << std::endl;
-	std::cout << "	test Point 1: " << probe1 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl;
-
-	Point	probe2(0.99f, 1.0f);
-	is_inside = bsp(a, b, c, probe2);
-	correct_result = false;
-
-	std::cout << "	test Point 2 : " << probe2 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl;
-
-	Point	probe3(1.01f, 1.0f);
-	is_inside = bsp(a, b, c, probe3);
-	correct_result = true;
-
-	std::cout << "	test Point 3 : " << probe3 << std::endl;
-	std::cout << "	bsp test returned : " << is_inside << ", should be : " << correct_result << std::endl;
-
+	single_bsp_test(1, false, a, b, c, Point(1.0f, 1.0f));
+	single_bsp_test(2, false, a, b, c, Point(0.99f, 1.0f));
+	single_bsp_test(3, true, a, b, c, Point(1.01f, 1.0f));
 }
 
 int main( void )

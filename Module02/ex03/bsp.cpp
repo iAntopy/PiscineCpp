@@ -28,7 +28,9 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 
 	// If point is to the right or left of 2 segments starting at the same point
 	// (a in our case), point cannot be inside the triangle.
-	if ((is_right_of_ab > 0) == (is_right_of_ac > 0))
+	if ((is_right_of_ab > 0) == (is_right_of_ac > 0)
+		|| (is_right_of_ab == 0)
+		|| (is_right_of_ac == 0))
 		return (false);
 
 	Point	bc(c - b);
@@ -42,9 +44,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	// If one of the tests is == 0, the point lies on one of the segments/edges
 	// and is therefore considered to be outside according to the subject.
 	if ((is_right_of_ab > 0 != is_right_of_bc > 0)
-		|| (is_right_of_ab == 0)
-		|| (is_right_of_bc == 0)
-		|| (is_right_of_ac == 0))
+		|| (is_right_of_bc == 0))		
 		return (false);
 	
 	return (true);

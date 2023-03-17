@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:46:50 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/15 18:20:47 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:54:46 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 #include <string>
 #include <cstring>
 
-Contact::Contact(void): _isInit(0)
-{
-	// this->_isInit = 0;
-	return ;
-}
+Contact::Contact(void): _isInit(0) {}
 
-Contact::~Contact(void)
-{
-}
+Contact::~Contact(void){}
 
 std::string const&	Contact::getFirstName(void) const
 {

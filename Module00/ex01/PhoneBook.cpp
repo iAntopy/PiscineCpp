@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:25:48 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/15 18:41:17 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:49:47 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,31 @@ int	pb_input_prompt(std::string& ret)
 	ret.clear();
 	std::cout << PB_IN_PROMPT;
 	while (ret.empty())
-	{
 		if (!std::getline(std::cin, ret))
-		{
-			std::cout << "gl : " << std::endl;;
 			return (reset_cin());
-		}
-	}
 	return (0);
 }
 
 PhoneBook::PhoneBook(void)	{this->_total_entries = 0;}
 PhoneBook::~PhoneBook(void) {}
 
-int	PhoneBook::_getNbEntries(void)	{return (this->_total_entries);}
+int	PhoneBook::_getNbEntries(void)
+{
+	return (this->_total_entries);
+}
 
-Contact&	PhoneBook::_getNextContact(void) {
-	return (this->_contacts[this->_getNbEntries() % MAX_ENTRIES]);}
+Contact&	PhoneBook::_getNextContact(void) 
+{
+	return (this->_contacts[this->_getNbEntries() % MAX_ENTRIES]);
+}
 
-Contact const&	PhoneBook::getLastEntry(void)	{
-	return (this->_contacts[(this->_getNbEntries() - 1) % MAX_ENTRIES]);}
+Contact const&	PhoneBook::getLastEntry(void)
+{
+	return (this->_contacts[(this->_getNbEntries() - 1) % MAX_ENTRIES]);
+}
 
 int	prompt_single_data_entry(std::string const& prompt, std::string& entry)
 {
-	std::cout << "single data" << std::endl;
 	entry.clear();
 	std::cout << PB_OUT_PROMPT << prompt;
 	while (getline(std::cin, entry) && entry.empty())
@@ -87,52 +88,10 @@ int	PhoneBook::add(void)
 	this->_total_entries++;
 	c.setIsInit();
 	return (0);
-/*
-	std::cout << "First name : ";
-	while (getline(std::cin, entry) && entry.empty())
-		std::cout << "First name : ";
-	if (entry.empty())
-		return (reset_cin());
-	c.setFirstName(entry);
-	entry.clear();
-	
-	std::cout << "Last name : ";
-	while (getline(std::cin, entry) && entry.empty())
-		std::cout << "Last name : ";
-	if (entry.empty())
-		return (reset_cin());
-	c.setLastName(entry);
-	entry.clear();
-
-	std::cout << "Nickname : ";
-	while (getline(std::cin, entry) && entry.empty())
-		std::cout << "Nickname : ";
-	if (entry.empty())
-		return (reset_cin());
-	c.setNickN
-		ame(entry);
-	entry.clear();
-	
-	std::cout << "Phone number : ";
-	while (getline(std::cin, entry) && entry.empty())
-		std::cout << "Phone number : ";
-	if (entry.empty())
-		return (reset_cin());
-	c.setPhoneNum(entry);
-	entry.clear();
-	
-	std::cout << "Darkest secret : ";
-	while (getline(std::cin, entry) && entry.empty())
-		std::cout << "Darkest secret : ";
-	if (entry.empty())
-		return (reset_cin());
-	c.setDarkSecret(entry);
-*/
 }
 
 void	print_single_table_entry(std::string const& ent)
 {
-//	std::cout << "|";
 	if (ent.length() > 10)
 	{
 		std::cout.write(ent.c_str(), 9);
@@ -167,7 +126,6 @@ int	prompt_search_index(void)
 
 int	PhoneBook::search(void)
 {
-//	std::string	index;
 	int	index;
 
 		if (this->_total_entries == 0)
@@ -207,9 +165,7 @@ int	PhoneBook::search(void)
 		index = prompt_search_index();
 		if (index == -1)
 			return (reset_cin());
-//		std::cout << "index received : " << index << std::endl;
 		C = &this->_contacts[index - 1];
-//		std::cout << "C is init ? " << C->getIsInit() << std::endl;
 		if (!C->getIsInit())
 			std::cerr << PB_OUT_PROMPT << "Silly you ... You have no friend corresponding to index " << index << std::endl;
 		else
@@ -222,6 +178,5 @@ int	PhoneBook::search(void)
 	std::cout << PB_OUT_PROMPT << "\t- Phone number :\t" << C->getPhoneNum() << std::endl;
 	std::cout << PB_OUT_PROMPT << "\t- Darkest secret :\t" << C->getDarkSecret() << std::endl << std::endl;
 	std::cout << PB_OUT_PROMPT << "They seem great. You should give'em a call." << std::endl << std::endl;
-//	std::cout << "SEARCH requested" << std::endl;
-		return (0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:43:47 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/16 22:30:02 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:45:47 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	open_log_file(std::ofstream& file, std::string& timestamp)
 {
 	std::string		filename;
 	
-//	filename = "logs/";
+	filename = "logs/";
 	filename += timestamp;
 	filename += ".log";
 	file.open(filename, std::ios_base::app);
@@ -174,9 +174,9 @@ Account::Account(int initial_deposit) : _amount(initial_deposit),
 	std::ofstream	file;
 	std::string		filename;
 
-	log_account_creation(this->_accountIndex, this->_amount);
 	this->_totalAmount += initial_deposit;
 	this->_accountIndex = this->_nbAccounts++;
+	log_account_creation(this->_accountIndex, this->_amount);
 }
 
 Account::Account(void) : _amount(0)
@@ -187,8 +187,8 @@ Account::Account(void) : _amount(0)
 Account::~Account(void)	{
 //	std::cout << "Account " << this->_accountIndex << " destroyed" << std::endl;
 
-	log_account_destruction(this->_accountIndex, this->_amount);
 	this->_nbAccounts--;
+	log_account_destruction(this->_accountIndex, this->_amount);
 }
 
 // Static member variables getters

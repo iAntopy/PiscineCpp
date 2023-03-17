@@ -6,15 +6,14 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:10:17 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/15 17:56:18 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:51:31 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <ctime>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-//#include <cstdlib>
-#include <ctime>
 
 void	display_title(void)
 {
@@ -30,20 +29,6 @@ void	display_title(void)
 	std::cout << CYAN_BC << "@@@" << PURPLE_BC << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << CYAN_BC << "@@@" << std::endl << std::endl;
 	std::cout << WHITE_C;
 }
-/*
-void	pb_msg(std::string const& msg, int nb_nl)
-{
-	std::cout << PB_OUT_PROMPT << msg;
-	while (nb_nl--)
-		std::cout << std::endl;
-}
-
-void	pb_input_prompt(std::string& ret)
-{
-	std::cout << PB_IN_PROMPT;
-	std::getline(std::cin, ret);
-}
-*/
 
 void	display_intro_msg(void)
 {
@@ -56,8 +41,8 @@ void	display_intro_msg(void)
 	pb_msg("Enter one of these commands to help me help you today :", 2);
 	pb_msg("	- ADD		: To add a cute new date to the list (wink!)", 1);
 	pb_msg("	- SEARCH	: To help you remember those you forgot about.", 1);
-	pb_msg("	- EXIT		: To help you forget those you wish you didn't know.", 2);
-	pb_msg("What will it be my friend ?", 1);
+	pb_msg("	- EXIT		: To help you forget about the indesirables.", 2);
+	pb_msg("What will it be friend ?", 1);
 	
 	if (pick == 0)
 		pb_msg("You and I will make this day so much better I can tell.", 2);
@@ -84,7 +69,6 @@ int	prompt_user(PhoneBook& pb)
 		return (0);
 	if (entry.substr(0,3) == "ADD")
 	{
-//		pb_msg("ADD", 1);
 		pb_msg("So who's the lucky one. Come on tell me. I can keep secrets.", 1);
 		if (pb.add() < 0)
 		{
@@ -122,23 +106,12 @@ int	prompt_user(PhoneBook& pb)
 int	main(void)
 {
 	PhoneBook	pb;
-	int		request_exit;
-//	Contact		c1;
-//	std::string	entry;
+	int			request_exit;
 
 	request_exit = 0;
 	display_intro_msg();
 	while (!request_exit)
 		if (prompt_user(pb) < 0)
 			request_exit = 1;
-
-/*
-	std::cout << "Enter contact's first name : ";
-	std::cin >> entry;
-	c1.setFirstName(entry);
-	std::cout << "contact first name entered : " << c1.getFirstName() << std::endl;
-	std::cout << "contact last name NOT entered : " << c1.getLastName() << std::endl;
-	c1.setIsInit();
-*/
 	return (0);
 }
